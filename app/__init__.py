@@ -2,8 +2,9 @@ from flask import Flask
 from config import Config
 import pickle
 
+# Define the path for the model
+MODEL_PATH = 'ML-Diabetes-Prediction/app/data/rf_model.pkl'
 
-# Construct core Flask application.
 def init_app():
     app = Flask(__name__)
     # import configuration
@@ -18,7 +19,5 @@ def init_app():
 
         return app
 
-
-# load machine learning models
-rf_model = pickle.load(open('app/data/rf_model.pkl', 'rb'))
-
+# Ensure the model is loaded correctly
+rf_model = pickle.load(open('ML-Diabetes-Prediction/app/rf_model.pkl', 'rb'))
